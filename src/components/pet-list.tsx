@@ -8,8 +8,10 @@ export default function PetList() {
   const { pets, selectedPetId, handleChangeSelectedPetId } = usePetContext();
   const { searchQuery } = useSearchContext();
 
-  const filteredPets = pets.filter((pet) =>
-    pet.name.toLowerCase().includes(searchQuery)
+  const filteredPets = pets.filter(
+    (pet) =>
+      pet.name.toLowerCase().includes(searchQuery) ||
+      pet.name.toUpperCase().includes(searchQuery)
   );
   return (
     <ul className="bg-white border-b border-black/[0.08]">
